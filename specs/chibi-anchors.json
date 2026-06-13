@@ -2,6 +2,8 @@
   "_README": "Contrato de registro do avatar V2 estilo CHIBI (FitXP). Toda camada chibi (corpo, olhos, cabelo, roupa, acessório) DEVE ser cortada/normalizada para esta caixa, com as âncoras abaixo alinhadas. NAO e LPC nem grade 64x64 (isso e a V1 do app) -- e a proporcao PROPRIA do chibi (cabeca ~1/3), pose frontal UNICA. Aprovado 2026-06-13. LESSCHIBI tem seu proprio spec (cabeca ~1/5).",
   "version": 1,
   "style": "chibi",
+  "approved_seed": 8712395610,
+  "_approved_seed_note": "SEED CANÔNICA do DNA chibi (travada ao ser aprovada). TODA geração chibi — qualquer slot, qualquer gênero — DEVE usar esta seed, p/ tudo casar. Só muda se o usuário aprovar uma nova.",
   "canvas": { "w": 256, "h": 256, "transparent": true },
   "centerX": 128,
   "anchors": {

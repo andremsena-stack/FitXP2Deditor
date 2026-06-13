@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.12.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.13.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -23,7 +23,8 @@ Tudo é **paper-doll**: camadas que se sobrepõem com registro exato.
 5. **Gere SÓ o item pedido.** Nomeie em texto `<slot>-<genero>-<modulo>-<desc>`. **Informe a SEED.**
    Mande a IMAGEM (manifesto é opcional).
 6. **Portes:** slim/fit/muscle mudam SÓ a massa/largura; **cabeça e esqueleto idênticos**; mesmo nível de detalhe.
-7. **Gêneros análogos = MESMA SEED + mesma referência** (trava o estilo entre masc/fem).
+7. **SEED CANÔNICA travada por módulo** (CHIBI = `8712395610`, no `approved_seed` do spec): TODA
+   geração do módulo usa essa seed (ambos os gêneros, todos os slots) + a mesma referência.
 8. **Muscle FEMININO = wellness/"Mewtwo":** massa na parte de baixo (coxas/glúteos/panturrilhas/core),
    tronco superior contido, cintura marcada. **NUNCA** masculinizar (sem V-taper/ombro/peito de homem).
 9. **Folha (sheet):** células quadradas iguais, separadas só pelo fundo (sem divisor colorido),
@@ -60,7 +61,10 @@ Cite a `version` dos JSON que usou.
 5. **Canvas FIXO 1024×1024 px, quadrado, IDÊNTICO p/ todos os sprites do módulo.**
    Âncoras em **% e em px** (tabelas §6/§7). O Claude reduz p/ a caixa do app (256²).
 6. **Uma figura/peça centralizada por célula. Pose frontal neutra e simétrica.**
-7. **SEED FIXA por módulo** (registre o número). Estilo idêntico entre todos os sprites.
+7. **SEED CANÔNICA por módulo — TRAVADA quando aprovada.** Está no campo `approved_seed` do
+   spec do módulo: **CHIBI = `8712395610`**. **TODA geração do módulo — qualquer slot, qualquer
+   gênero, qualquer porte — usa essa MESMA seed.** Só muda se o usuário aprovar uma nova.
+   (LESSCHIBI: trava ao aprovar o 1º set.)
 8. **Resolução de detalhe:** pixel art nítido, **estética 16-bit**. **AA leve PERMITIDO no
    contorno e nas transições de banda — o alvo é o estilo das IMAGENS DE REFERÊNCIA (chibi
    suave/shaded), NÃO pixel art retro 8-bit de 1 px sem AA.** Proibido apenas: gradiente

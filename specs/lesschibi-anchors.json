@@ -2,6 +2,8 @@
   "_README": "Contrato de registro do avatar V2 estilo LESSCHIBI (FitXP). Proporção semi-realista (~5 cabeças), mais alta/madura que o chibi. Mesma lógica do chibi-anchors.json, porém cabeça MENOR e pernas mais longas. PROPOSTA 2026-06-13 (derivada das refs LESSCHIBI), ajustável como o chibi foi. Toda camada lesschibi DEVE ser normalizada para esta caixa/âncoras.",
   "version": 1,
   "style": "lesschibi",
+  "approved_seed": null,
+  "_approved_seed_note": "PENDENTE: ao aprovar o 1º set lesschibi, travar a seed aqui (igual ao chibi=8712395610). Toda geração lesschibi usará essa seed.",
   "canvas": { "w": 256, "h": 256, "transparent": true },
   "centerX": 128,
   "anchors": {

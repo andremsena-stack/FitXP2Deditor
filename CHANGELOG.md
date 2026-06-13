@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.13 (seed canônica travada por DNA)
+- Seed aprovada vira CANÔNICA do módulo, gravada em `approved_seed` do spec. CHIBI = 8712395610. Toda geração chibi (qualquer slot/gênero/porte) usa essa seed. lesschibi: approved_seed=null até aprovar o 1º set. Regra 7 e Regra de Ouro atualizadas.
+
 ## 2026-06-13 — v1.12 (proporção vertical travada cross-gênero)
 - Medição mostrou masc com pernas longas (virilha ~55%) e fem com pernas curtas/tronco longo (virilha ~65%) = desconexão de escala. §6: PROPORÇÃO VERTICAL TRAVADA idêntica masc/fem (mesma cabeça, virilha 60%, joelho 80%, pés 96%); só muda largura/anatomia. Regra de ouro #10. Ao gerar gênero oposto: anexar o corpo pronto como ref de proporção + mesma seed.
 
