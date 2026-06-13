@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.12 (proporção vertical travada cross-gênero)
+- Medição mostrou masc com pernas longas (virilha ~55%) e fem com pernas curtas/tronco longo (virilha ~65%) = desconexão de escala. §6: PROPORÇÃO VERTICAL TRAVADA idêntica masc/fem (mesma cabeça, virilha 60%, joelho 80%, pés 96%); só muda largura/anatomia. Regra de ouro #10. Ao gerar gênero oposto: anexar o corpo pronto como ref de proporção + mesma seed.
+
 ## 2026-06-13 — v1.11 (resumo 'Regras de Ouro' no topo)
 - Adicionado bloco TL;DR com as 9 regras críticas no topo do GEM-INSTRUCTIONS (fundo verde/alpha, canvas/pose, cel-shading/contorno, módulo+âncoras+rosto liso, item+nome+seed, portes, mesma-seed cross-gênero, muscle fem wellness/Mewtwo, folha). Consolidação p/ o Gem reler e re-sincronizar. Sem mudança de coordenadas.
 

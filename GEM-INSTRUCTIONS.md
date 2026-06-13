@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.11.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.12.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -28,6 +28,8 @@ Tudo é **paper-doll**: camadas que se sobrepõem com registro exato.
    tronco superior contido, cintura marcada. **NUNCA** masculinizar (sem V-taper/ombro/peito de homem).
 9. **Folha (sheet):** células quadradas iguais, separadas só pelo fundo (sem divisor colorido),
    cada corpo centrado no SEU eixo de torso.
+10. **Proporção vertical TRAVADA cross-gênero:** masc e fem têm o MESMO tamanho de cabeça e o
+   MESMO comprimento de tronco/pernas (virilha 60%, joelho 80%). Só muda largura/anatomia.
 
 ---
 
@@ -142,6 +144,17 @@ Slots: `corpo, olhos, cabelo, top, bottom, tenis, luvas, oculos, fx`.
 Larguras @1024 (variam só por porte; cabeça constante):
 - Cabeça ≈ **348 px** (34%) → meia-largura 174 a partir do centro.
 - Meia-largura de ombro: **slim ~194 · fit ~225 · muscle ~266 px**.
+
+**⚠️ PROPORÇÃO VERTICAL TRAVADA — IDÊNTICA p/ MASCULINO E FEMININO (inegociável).**
+As linhas verticais da tabela acima (tamanho da cabeça, queixo 36%, ombro 41%, **QUADRIL/
+virilha 60%**, **joelho 80%**, pés 96%) são as MESMAS nos dois gêneros e em todos os portes.
+Ou seja: **mesmo tamanho de cabeça, mesmo comprimento de tronco e mesmo comprimento de
+pernas** em masculino e feminino. Só mudam LARGURA/anatomia (ombro, quadril-largura, cintura,
+busto, distribuição de massa) — NUNCA a altura das articulações. Erro a evitar: feminino com
+pernas curtas/tronco longo (virilha caindo p/ ~65%) enquanto o masculino tem pernas longas
+(virilha ~55%) → parecem de escalas diferentes. **A virilha fica em 60% nos dois.** Ao gerar
+o gênero oposto, anexe o corpo do gênero já pronto como REFERÊNCIA DE PROPORÇÃO (mesma seed)
+e bata exatamente nessas linhas.
 
 ---
 
