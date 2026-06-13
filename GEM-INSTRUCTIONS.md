@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.9.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.10.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -202,10 +202,17 @@ Mesma altura, mesma cabeça, **mesma posição de TODAS as articulações**. Mud
 
 **MUSCLE POR GÊNERO (importante):**
 - **Masculino:** volumoso, ombro largo, peitoral/dorsais marcados (fisiculturista).
-- **Feminino = WELLNESS/atlético, NÃO masculinizado.** Definição muscular SIM, mas mantendo
-  a **silhueta feminina**: cintura marcada, quadril, ombros NÃO-masculinos. PROIBIDO
-  trapézio alto, peitoral "de homem", ombros/costas de fisiculturista masculino. Pense
-  "atleta wellness/fitness feminina", não "bodybuilder masculino com seios".
+- **Feminino = WELLNESS/atlético, NÃO masculinizado.** A massa cresce na **PARTE DE BAIXO +
+  core**, NUNCA pra cima. Silhueta-alvo "**Mewtwo/wellness**": membros inferiores avantajados,
+  tronco superior CONTIDO e delicado, mesmo no muscle.
+  - **Desenvolver (slim→muscle):** coxas/quadríceps, glúteos, panturrilhas, abdômen definido,
+    quadril. O volume DESCE pro quadril/pernas (forma de violão/pêra atlética).
+  - **MANTER CONTIDO (≈ nível fit, não alargar no muscle):** ombros, peitoral, braços,
+    trapézio, pescoço. Cintura sempre marcada.
+  - **PROIBIDO:** V-taper masculino (ombro largo→cintura fina), trapézio alto, peitoral "de
+    homem", ombros/costas de fisiculturista. Pense "atleta fitness/wellness feminina", não
+    "bodybuilder masculino com seios". No muscle feminino, o OMBRO fica ~no nível do fit; quem
+    cresce são pernas/glúteos/quadril + definição do core.
 
 **Largura de ombro (esclarecimento):** o ombro é SEMPRE ≥ a largura da cabeça; o
 afilamento em "V" (ombro largo → cintura fina) **cresce de slim → fit → muscle**, usando

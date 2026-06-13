@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.10 (DNA do muscle feminino: silhueta Mewtwo/wellness)
+- Refinado com referência aprovada (só proporção; estética anime/olhos/cabelo/3-4 descartada). §10 muscle feminino: massa cresce na PARTE DE BAIXO + core (coxas/glúteos/panturrilhas/abdômen/quadril), tronco superior CONTIDO (ombro ~nível fit), cintura marcada. Proibido V-taper masculino. Silhueta-alvo 'Mewtwo': base poderosa, topo enxuto.
+
 ## 2026-06-13 — v1.9 (muscle feminino = wellness, não masculino)
 - §10: muscle por gênero. Feminino = WELLNESS/atlético mantendo silhueta feminina (cintura/quadril, ombros não-masculinos); proibido trapézio/peitoral/ombros de fisiculturista masculino. (Motivo: muscle fem saindo masculinizado.)
 
