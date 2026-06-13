@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.2.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.3.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -28,24 +28,32 @@ Cite a `version` dos JSON que usou.
 ## 1) REGRAS DE SAÍDA — INEGOCIÁVEIS
 1. **PNG com canal ALPHA real, fundo 100% TRANSPARENTE.**
 2. **PROIBIDO fundo quadriculado/xadrez** (é só indicador de transparência do editor;
-   pintado = ERRADO).
+   pintado = ERRADO). **NEM magenta/chroma-key (#FF00FF) NEM qualquer cor de fundo** — o
+   recorte/cutout é feito por **alpha real**, nunca por cor-chave pintada.
 3. **PROIBIDO marca d'água, texto, logo de IA, assinatura ou ruído** na imagem.
 4. **Canvas FIXO 1024×1024 px, quadrado, IDÊNTICO p/ todos os sprites do módulo.**
    Âncoras em **% e em px** (tabelas §6/§7). O Claude reduz p/ a caixa do app (256²).
 5. **Uma figura/peça centralizada por célula. Pose frontal neutra e simétrica.**
 6. **SEED FIXA por módulo** (registre o número). Estilo idêntico entre todos os sprites.
-7. **Resolução de detalhe:** pixel art nítido, **estética 16-bit (SNES)**; **anti-aliasing
-   só no contorno** (1–2 px), nunca no preenchimento. Sem desfoque/efeito fotográfico.
+7. **Resolução de detalhe:** pixel art nítido, **estética 16-bit**. **AA leve PERMITIDO no
+   contorno e nas transições de banda — o alvo é o estilo das IMAGENS DE REFERÊNCIA (chibi
+   suave/shaded), NÃO pixel art retro 8-bit de 1 px sem AA.** Proibido apenas: gradiente
+   fotográfico/blur no preenchimento.
+
+**⚠️ CHIBI e LESSCHIBI NÃO são LPC.** Não use grid LPC 64×64, direções de walk (south/etc.)
+nem frames de animação. Cada sprite é **uma pose frontal ÚNICA** no canvas 1024² do módulo,
+com a PRÓPRIA proporção (chibi cabeça ~⅓; lesschibi ~⅕). LPC é outra coisa (a V1 do app).
 
 ---
 
 ## 2) ESTILO VISUAL (detalhado)
-- **Contorno:** escuro, **uniforme**, ~**8 px** de espessura no canvas 1024² (todo o
-  perímetro externo + separações internas principais). Cor do contorno **não** preto puro:
-  use **#1A1420** (quase-preto arroxeado). Contorno interno pode ser 1 tom mais claro.
+- **Contorno:** escuro, **uniforme**, ~**8 px** no canvas 1024² (≈ **2 px** quando reduzido
+  a 256² — **NÃO use 1 px**). Cor EXATA **#1A1420** (quase-preto arroxeado) — **não** #1A0B2E,
+  **não** preto puro. Contorno interno pode ser 1 tom mais claro.
 - **Sombreamento:** **cel-shading de 3 tons** por material (base + 1 sombra + 1 luz),
-  blocos chapados (sem gradiente suave). **Luz vinda de cima-frente** (sombra na parte de
-  baixo de cada volume: peito, abdômen, panturrilhas). Definição muscular por **blocos de
+  blocos chapados (sem gradiente fotográfico). **Luz de cima-frente, SIMÉTRICA** (não
+  lateral/canto superior esquerdo — preserva a simetria do avatar frontal; sombra na parte
+  de baixo de cada volume: peito, abdômen, panturrilhas). Definição muscular por **blocos de
   sombra**, não por linhas finas realistas.
 - **Realismo:** estilizado/heroico, NÃO fotográfico. Volumes legíveis a 256 px.
 
@@ -103,7 +111,8 @@ Larguras @1024 (variam só por porte; cabeça constante):
 ---
 
 ## 7) MÓDULO LESSCHIBI — SPEC (canvas 1024×1024; centro x = **512**; cabeça ~⅕)
-Semi-realista (~5 cabeças), mais alto/maduro, pernas longas. **NÃO use as % do chibi.**
+Semi-realista (**~5 cabeças — NÃO 6–7; não é realista**), mais alto/maduro que o chibi,
+pernas longas. **NÃO use as % do chibi.**
 | Âncora | % altura | y @1024 |
 |---|---|---|
 | margem p/ cabelo (livre) | 0–4% | 0–41 |
@@ -139,6 +148,10 @@ Estrutura facial (nariz/maxilar) sugerida, mas **olhos VAZIOS** (camada).
 > Use SEMPRE as âncoras do **módulo escolhido**. Toda peça é gerada no canvas fixo,
 > transparente, posicionada **exatamente onde encaixaria no corpo** (deslocamento zero) —
 > NUNCA “centralize a peça sozinha”; centralize-a **na âncora**.
+
+**Calota/vazado (regra de opacidade):** cada peça é **opaca SÓ na sua própria área**; todo o
+resto — inclusive a pele/rosto/corpo que ela NÃO cobre — fica **100% transparente**. Nunca
+mescle a peça a um corpo completo (salvo se eu pedir um preview montado).
 
 - **corpo:** base nua, **olhos vazios** (área do olho = pele lisa com leve soquete/sombra,
   SEM íris/pupila/cílios/sobrancelha), **sem cabelo**, **sem roupa**. Pele = rampa neutra

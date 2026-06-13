@@ -2,6 +2,17 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.3 (correções pós-auditoria do Gemini)
+Gemini relatou entendimento com 5 desvios; corrigidos/blindados:
+- **CHIBI ≠ LPC 64×64** (Gemini achava que era grid LPC) — nota explícita + removida a
+  menção a "anchors_master.json do LPC" no `chibi-anchors.json` que o confundia.
+- **LESSCHIBI = ~5 cabeças** (Gemini disse 6–7) — explicitado "NÃO 6–7".
+- **Contorno #1A1420** (Gemini usou #1A0B2E) e **~8px@1024 ≈2px@256, NÃO 1px** (Gemini usou 1px).
+- **Fundo:** proibido magenta/chroma-key #FF00FF (Gemini introduziu) — só alpha real.
+- **AA:** permitido leve no contorno/bandas (alvo = refs chibi suaves), NÃO retro 8-bit sem AA
+  (Gemini proibiu AA total). Luz **simétrica de cima-frente** (Gemini usou canto sup. esquerdo).
+- Adicionada regra **calota/vazado** (peça opaca só na própria área; resto transparente).
+
 ## 2026-06-13 — v1.2 (consolida o prompt antigo)
 - Comparado com o prompt single-shot antigo: tudo dele migrado/melhorado. Adições:
   nota de que SUBSTITUI o prompt antigo; **estética 16-bit (SNES)** explícita;

@@ -1,5 +1,5 @@
 {
-  "_README": "Contrato de registro do avatar V2 estilo CHIBI (FitXP). Toda camada chibi (corpo, olhos, cabelo, roupa, acessório) DEVE ser cortada/normalizada para esta caixa, com as âncoras abaixo alinhadas. Espelha o papel do anchors_master.json do LPC, porém na proporção chibi. Aprovado 2026-06-13. LESSCHIBI terá seu próprio spec (proporção diferente).",
+  "_README": "Contrato de registro do avatar V2 estilo CHIBI (FitXP). Toda camada chibi (corpo, olhos, cabelo, roupa, acessório) DEVE ser cortada/normalizada para esta caixa, com as âncoras abaixo alinhadas. NAO e LPC nem grade 64x64 (isso e a V1 do app) -- e a proporcao PROPRIA do chibi (cabeca ~1/3), pose frontal UNICA. Aprovado 2026-06-13. LESSCHIBI tem seu proprio spec (cabeca ~1/5).",
   "version": 1,
   "style": "chibi",
   "canvas": { "w": 256, "h": 256, "transparent": true },
