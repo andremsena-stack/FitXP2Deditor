@@ -2,6 +2,10 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.7 (lastro por-célula + separação limpa)
+- §4B: cada célula = 1 corpo centrado no SEU eixo de torso (lastro por-célula); separação só pelo MESMO fundo (sem divisores/linhas de cor — nem verde-escuro nem branco); todos os corpos da folha com cabeça/esqueleto idênticos (só largura muda).
+- (Cutter: keyer de verde ampliado p/ remover verde claro E escuro = divisores; registro ancora o eixo do torso por célula.)
+
 ## 2026-06-13 — v1.6 (consistência de detalhe entre peças)
 - Problema: peças saindo com níveis de detalhe diferentes (gerações/seeds/resoluções distintas).
 - Nova §10.5: slim/fit/muscle diferem em MASSA não em detalhe; mesmo vocabulário muscular (sem veias/estrias); gerar o SET inteiro numa folha com MESMA seed; todos os sets na MESMA ref de estilo; mesmo contorno/nº de tons/resolução efetiva.

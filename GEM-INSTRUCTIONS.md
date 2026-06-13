@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.6.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.7.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -80,10 +80,16 @@ com a PRÓPRIA proporção (chibi cabeça ~⅓; lesschibi ~⅕). LPC é outra co
 ## 4) FORMATO DE ENTREGA PARA CORTE (handoff Claude)
 ### 4A) MODO ITEM (padrão) — 1 peça = 1 PNG transparente, ancorada, nomeada (§5).
 ### 4B) MODO SHEET — vários itens/frames numa folha (lotes; economiza créditos)
-Grade **RÍGIDA**: células uniformes (= 1024×1024), preenchidas **L→R, T→B**, **gutter
-transparente uniforme** (recomendado 0), **sem linhas/bordas desenhadas**, sem
-sobreposição, fundo 100% transparente. Cada peça com as **mesmas âncoras** do módulo
-dentro da célula. **Células QUADRADAS e iguais.**
+Grade **RÍGIDA**: células uniformes, preenchidas **L→R, T→B**, **células QUADRADAS e iguais**,
+sem sobreposição. Regras críticas p/ o corte automático:
+- **CADA célula = 1 corpo/peça, centrado no SEU PRÓPRIO eixo** (o "lastro" é por-célula): o
+  EIXO DO TORSO de cada corpo fica no centro horizontal da sua célula. Não deixe um corpo
+  "escorregar" p/ a borda — senão o corte confunde qual estrutura pertence a qual célula.
+- **Separação = só o MESMO fundo entre as células** (gutter de fundo transparente, ou o
+  MESMO verde #00FF00). **NÃO desenhe linhas/divisores/molduras de cor diferente** (nem
+  verde-escuro, nem branco) — divisores coloridos atrapalham o registro e o corte.
+- **TODOS os corpos da folha compartilham cabeça e esqueleto IDÊNTICOS** (mesma cabeça,
+  mesmas alturas de pescoço/ombro/quadril/joelho/pé); só a LARGURA muda entre slim/fit/muscle.
 Vale p/ **spritesheet de animação** (cada célula = 1 frame; `variant: frameNN`) — só se pedido.
 
 **PRIORIDADE: entregue a IMAGEM.** Se a ferramenta não permitir imagem + texto na mesma
