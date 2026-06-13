@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.7.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.8.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -219,6 +219,10 @@ com densidade de detalhe diferente (uma lisa, outra cheia de estrias).
   Nunca misture peças de gerações/seeds diferentes no mesmo set.
 - **TODOS os sets (masc, fem) e itens usam a MESMA imagem de referência de estilo fixa** +
   a mesma família de seed, para o avatar inteiro ser coeso.
+- **GÊNEROS ANÁLOGOS = MESMA SEED.** Ao gerar o gênero OPOSTO de um set já aprovado (ex.:
+  o feminino a partir do masculino aprovado), **reutilize a SEED EXATA do set aprovado** +
+  a mesma imagem de referência. É isso que trava o ESTILO DE ARTE entre masculino e
+  feminino (seed diferente entre gêneros = traço/sombreado divergente). Só a anatomia muda.
 - **Mesma espessura de contorno (~8px) e o MESMO número de tons (3) em todas as peças.**
   Mesmo tamanho de "pixel" (mesma resolução efetiva) — não renderize uma peça muito mais
   fina/detalhada que as outras.

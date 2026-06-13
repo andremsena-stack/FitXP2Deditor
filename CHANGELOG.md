@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.8 (gêneros análogos = mesma seed)
+- Problema: feminino divergindo do masculino no estilo. §10.5: ao gerar o gênero OPOSTO de um set aprovado, reutilizar a SEED EXATA do set aprovado + mesma referência (trava o traço/sombreado entre masc e fem; só a anatomia muda).
+
 ## 2026-06-13 — v1.7 (lastro por-célula + separação limpa)
 - §4B: cada célula = 1 corpo centrado no SEU eixo de torso (lastro por-célula); separação só pelo MESMO fundo (sem divisores/linhas de cor — nem verde-escuro nem branco); todos os corpos da folha com cabeça/esqueleto idênticos (só largura muda).
 - (Cutter: keyer de verde ampliado p/ remover verde claro E escuro = divisores; registro ancora o eixo do torso por célula.)
