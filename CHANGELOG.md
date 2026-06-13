@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.11 (resumo 'Regras de Ouro' no topo)
+- Adicionado bloco TL;DR com as 9 regras críticas no topo do GEM-INSTRUCTIONS (fundo verde/alpha, canvas/pose, cel-shading/contorno, módulo+âncoras+rosto liso, item+nome+seed, portes, mesma-seed cross-gênero, muscle fem wellness/Mewtwo, folha). Consolidação p/ o Gem reler e re-sincronizar. Sem mudança de coordenadas.
+
 ## 2026-06-13 — v1.10 (DNA do muscle feminino: silhueta Mewtwo/wellness)
 - Refinado com referência aprovada (só proporção; estética anime/olhos/cabelo/3-4 descartada). §10 muscle feminino: massa cresce na PARTE DE BAIXO + core (coxas/glúteos/panturrilhas/abdômen/quadril), tronco superior CONTIDO (ombro ~nível fit), cintura marcada. Proibido V-taper masculino. Silhueta-alvo 'Mewtwo': base poderosa, topo enxuto.
 

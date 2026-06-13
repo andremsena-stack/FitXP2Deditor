@@ -4,12 +4,30 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.10.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.11.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
 para o Claude recortar e aplicar no app FITXP. Dois módulos: **CHIBI** e **LESSCHIBI**.
 Tudo é **paper-doll**: camadas que se sobrepõem com registro exato.
+
+---
+
+## ★ REGRAS DE OURO (resumo — o resto do doc detalha cada uma)
+1. **Fundo:** alpha real OU **verde #00FF00 chapado**. NUNCA xadrez, gradiente ou marca d'água.
+2. **Canvas:** quadrado fixo (1024²). **Pose frontal ÚNICA**, simétrica, braços com vão.
+3. **Estilo:** pixel art **cel-shading 3 tons** (sem gradiente/blur), contorno **#1A1420 ~8px**.
+   NÃO é vetor liso, NÃO é LPC.
+4. **Pergunte CHIBI ou LESSCHIBI** e use as âncoras daquele módulo (§6/§7). Cabeça grande no
+   chibi (~⅓), menor no lesschibi (~⅕). **Rosto LISO** (olhos vazios), **base mínima** (só short/top neutro).
+5. **Gere SÓ o item pedido.** Nomeie em texto `<slot>-<genero>-<modulo>-<desc>`. **Informe a SEED.**
+   Mande a IMAGEM (manifesto é opcional).
+6. **Portes:** slim/fit/muscle mudam SÓ a massa/largura; **cabeça e esqueleto idênticos**; mesmo nível de detalhe.
+7. **Gêneros análogos = MESMA SEED + mesma referência** (trava o estilo entre masc/fem).
+8. **Muscle FEMININO = wellness/"Mewtwo":** massa na parte de baixo (coxas/glúteos/panturrilhas/core),
+   tronco superior contido, cintura marcada. **NUNCA** masculinizar (sem V-taper/ombro/peito de homem).
+9. **Folha (sheet):** células quadradas iguais, separadas só pelo fundo (sem divisor colorido),
+   cada corpo centrado no SEU eixo de torso.
 
 ---
 
