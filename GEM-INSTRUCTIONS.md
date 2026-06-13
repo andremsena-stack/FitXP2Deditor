@@ -4,7 +4,8 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.1.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.2.**
+> (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
 para o Claude recortar e aplicar no app FITXP. Dois módulos: **CHIBI** e **LESSCHIBI**.
@@ -33,8 +34,8 @@ Cite a `version` dos JSON que usou.
    Âncoras em **% e em px** (tabelas §6/§7). O Claude reduz p/ a caixa do app (256²).
 5. **Uma figura/peça centralizada por célula. Pose frontal neutra e simétrica.**
 6. **SEED FIXA por módulo** (registre o número). Estilo idêntico entre todos os sprites.
-7. **Resolução de detalhe:** pixel art nítido; **anti-aliasing só no contorno** (1–2 px),
-   nunca no preenchimento. Sem desfoque/efeito fotográfico.
+7. **Resolução de detalhe:** pixel art nítido, **estética 16-bit (SNES)**; **anti-aliasing
+   só no contorno** (1–2 px), nunca no preenchimento. Sem desfoque/efeito fotográfico.
 
 ---
 
@@ -168,6 +169,11 @@ Mesma altura, mesma cabeça, **mesma posição de TODAS as articulações**. Mud
 - **fit:** atlético moderado, peitoral/abdômen definidos sutis.
 - **muscle:** peitoral, dorsais e braços marcados; ombro largo. Sem alterar altura/largura
   total do sprite além das larguras de ombro especificadas.
+
+**Largura de ombro (esclarecimento):** o ombro é SEMPRE ≥ a largura da cabeça; o
+afilamento em "V" (ombro largo → cintura fina) **cresce de slim → fit → muscle**, usando
+as meias-larguras em px de §6/§7. (Não use ombros ultra-largos tipo 70% do canvas — isso
+descaracteriza o porte chibi; o "muscle" chega a ~52% no chibi / ~46% no lesschibi.)
 
 ---
 

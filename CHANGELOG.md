@@ -2,6 +2,12 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.2 (consolida o prompt antigo)
+- Comparado com o prompt single-shot antigo: tudo dele migrado/melhorado. Adições:
+  nota de que SUBSTITUI o prompt antigo; **estética 16-bit (SNES)** explícita;
+  **esclarecimento de largura de ombro** (ombro ≥ cabeça, V-taper slim→muscle; sem ombros
+  70%). Coordenadas/specs inalteradas (já eram o spec aprovado).
+
 ## 2026-06-13 — v1.1 (instruções detalhadas)
 - `GEM-INSTRUCTIONS.md` muito mais específico: **px @1024²** por âncora (chibi e lesschibi),
   contorno (#1A1420, ~8px), cel-shading 3 tons + direção de luz, **paleta com hex** (roxo
