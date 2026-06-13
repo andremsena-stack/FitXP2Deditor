@@ -2,6 +2,10 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.5 (imagem tem prioridade sobre o manifesto)
+- O motor do Gemini não entrega imagem+texto juntos. Regra §4B: **entregar a IMAGEM**; manifesto é OPCIONAL (o Claude controla nomes e fatia pela proporção). Manifesto, se vier, em mensagem separada. Células quadradas.
+- (Lado Claude: `cut_sheet.py` agora corta folha SEM manifesto via `--cols/--rows/--names`.)
+
 ## 2026-06-13 — v1.4 (fallback de corte: chroma verde)
 - Evidência: o NBP segue entregando **xadrez pintado + marca d'água** (não alpha real),
   e o xadrez é impossível de recortar limpo. Regra de fundo revista: **alpha real preferido;

@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.4.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.5.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -83,9 +83,14 @@ com a PRÓPRIA proporção (chibi cabeça ~⅓; lesschibi ~⅕). LPC é outra co
 Grade **RÍGIDA**: células uniformes (= 1024×1024), preenchidas **L→R, T→B**, **gutter
 transparente uniforme** (recomendado 0), **sem linhas/bordas desenhadas**, sem
 sobreposição, fundo 100% transparente. Cada peça com as **mesmas âncoras** do módulo
-dentro da célula. **Anexe o manifesto JSON** (`/specs/sheet-manifest.schema.json`):
-`canvas.W = cols*cell.w + (cols-1)*gutter` · `canvas.H = rows*cell.h + (rows-1)*gutter`.
+dentro da célula. **Células QUADRADAS e iguais.**
 Vale p/ **spritesheet de animação** (cada célula = 1 frame; `variant: frameNN`) — só se pedido.
+
+**PRIORIDADE: entregue a IMAGEM.** Se a ferramenta não permitir imagem + texto na mesma
+resposta, **mande a IMAGEM da folha** (o manifesto é OPCIONAL — o Claude controla os nomes
+e fatia pela proporção da grade). Se puder, mande o manifesto JSON em mensagem separada
+(`/specs/sheet-manifest.schema.json`), informando só `cols`, `rows`, `gutter`, a ordem dos
+nomes e a `seed`. Nunca segure a imagem para tentar produzir o JSON junto.
 
 ---
 
