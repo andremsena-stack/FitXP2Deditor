@@ -2,6 +2,10 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.6 (consistência de detalhe entre peças)
+- Problema: peças saindo com níveis de detalhe diferentes (gerações/seeds/resoluções distintas).
+- Nova §10.5: slim/fit/muscle diferem em MASSA não em detalhe; mesmo vocabulário muscular (sem veias/estrias); gerar o SET inteiro numa folha com MESMA seed; todos os sets na MESMA ref de estilo; mesmo contorno/nº de tons/resolução efetiva.
+
 ## 2026-06-13 — v1.5 (imagem tem prioridade sobre o manifesto)
 - O motor do Gemini não entrega imagem+texto juntos. Regra §4B: **entregar a IMAGEM**; manifesto é OPCIONAL (o Claude controla nomes e fatia pela proporção). Manifesto, se vier, em mensagem separada. Células quadradas.
 - (Lado Claude: `cut_sheet.py` agora corta folha SEM manifesto via `--cols/--rows/--names`.)

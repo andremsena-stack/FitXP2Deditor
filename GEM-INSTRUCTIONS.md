@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.5.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.6.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -198,6 +198,24 @@ Mesma altura, mesma cabeça, **mesma posição de TODAS as articulações**. Mud
 afilamento em "V" (ombro largo → cintura fina) **cresce de slim → fit → muscle**, usando
 as meias-larguras em px de §6/§7. (Não use ombros ultra-largos tipo 70% do canvas — isso
 descaracteriza o porte chibi; o "muscle" chega a ~52% no chibi / ~46% no lesschibi.)
+
+---
+
+## 10.5) CONSISTÊNCIA DE DETALHE (toda a coleção parece UM sistema)
+O avatar troca de porte e empilha camadas — então TODAS as peças precisam do MESMO
+acabamento. Erros recorrentes: peças geradas em passes/seeds/resoluções diferentes saem
+com densidade de detalhe diferente (uma lisa, outra cheia de estrias).
+- **slim/fit/muscle diferem em MASSA, não em densidade de detalhe.** O mesmo vocabulário
+  de músculos nos três (só os principais: peitoral, abdômen em blocos simples, deltoide,
+  bíceps, quadríceps, panturrilha). **PROIBIDO** veias, estrias finas, micro-sombras ou
+  qualquer detalhe que apareça só num porte.
+- **Gere o SET inteiro de um gênero (slim+fit+muscle) numa ÚNICA folha, com a MESMA SEED.**
+  Nunca misture peças de gerações/seeds diferentes no mesmo set.
+- **TODOS os sets (masc, fem) e itens usam a MESMA imagem de referência de estilo fixa** +
+  a mesma família de seed, para o avatar inteiro ser coeso.
+- **Mesma espessura de contorno (~8px) e o MESMO número de tons (3) em todas as peças.**
+  Mesmo tamanho de "pixel" (mesma resolução efetiva) — não renderize uma peça muito mais
+  fina/detalhada que as outras.
 
 ---
 
