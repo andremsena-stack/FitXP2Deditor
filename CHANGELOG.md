@@ -2,6 +2,13 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.4 (fallback de corte: chroma verde)
+- Evidência: o NBP segue entregando **xadrez pintado + marca d'água** (não alpha real),
+  e o xadrez é impossível de recortar limpo. Regra de fundo revista: **alpha real preferido;
+  se não der, fundo SÓLIDO CHAPADO verde-croma #00FF00** (uniforme, sem padrão/gradiente/
+  marca) — recortável por chroma. Proibido SEMPRE: xadrez, gradiente, marca d'água, e cor de
+  fundo próxima das do sprite (sem magenta/roxo). Regras renumeradas.
+
 ## 2026-06-13 — v1.3 (correções pós-auditoria do Gemini)
 Gemini relatou entendimento com 5 desvios; corrigidos/blindados:
 - **CHIBI ≠ LPC 64×64** (Gemini achava que era grid LPC) — nota explícita + removida a

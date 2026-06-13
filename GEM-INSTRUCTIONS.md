@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.3.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.4.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -26,16 +26,22 @@ Cite a `version` dos JSON que usou.
 ---
 
 ## 1) REGRAS DE SAÍDA — INEGOCIÁVEIS
-1. **PNG com canal ALPHA real, fundo 100% TRANSPARENTE.**
-2. **PROIBIDO fundo quadriculado/xadrez** (é só indicador de transparência do editor;
-   pintado = ERRADO). **NEM magenta/chroma-key (#FF00FF) NEM qualquer cor de fundo** — o
-   recorte/cutout é feito por **alpha real**, nunca por cor-chave pintada.
-3. **PROIBIDO marca d'água, texto, logo de IA, assinatura ou ruído** na imagem.
-4. **Canvas FIXO 1024×1024 px, quadrado, IDÊNTICO p/ todos os sprites do módulo.**
+1. **Preferência: PNG com canal ALPHA real, fundo 100% TRANSPARENTE.**
+2. **PROIBIDO SEMPRE: fundo XADREZ/quadriculado, gradiente de fundo e qualquer padrão.**
+   O xadrez é só indicador de transparência do editor — pintá-lo = ERRADO e **impossível
+   de recortar limpo**.
+3. **Fallback de corte (se e somente se o alpha real não for possível):** use **fundo
+   SÓLIDO CHAPADO de UMA cor única não usada no sprite = verde-croma `#00FF00`** —
+   totalmente uniforme, sem padrão, sem gradiente, sem marca d'água. (O Claude recorta por
+   chroma.) **Nunca** use xadrez, nem cor próxima das do personagem (nada de magenta/roxo,
+   que conflita com a marca).
+4. **PROIBIDO marca d'água, texto, logo de IA, assinatura ou ruído** na imagem (nem no
+   canto, nem por cima do personagem).
+5. **Canvas FIXO 1024×1024 px, quadrado, IDÊNTICO p/ todos os sprites do módulo.**
    Âncoras em **% e em px** (tabelas §6/§7). O Claude reduz p/ a caixa do app (256²).
-5. **Uma figura/peça centralizada por célula. Pose frontal neutra e simétrica.**
-6. **SEED FIXA por módulo** (registre o número). Estilo idêntico entre todos os sprites.
-7. **Resolução de detalhe:** pixel art nítido, **estética 16-bit**. **AA leve PERMITIDO no
+6. **Uma figura/peça centralizada por célula. Pose frontal neutra e simétrica.**
+7. **SEED FIXA por módulo** (registre o número). Estilo idêntico entre todos os sprites.
+8. **Resolução de detalhe:** pixel art nítido, **estética 16-bit**. **AA leve PERMITIDO no
    contorno e nas transições de banda — o alvo é o estilo das IMAGENS DE REFERÊNCIA (chibi
    suave/shaded), NÃO pixel art retro 8-bit de 1 px sem AA.** Proibido apenas: gradiente
    fotográfico/blur no preenchimento.
