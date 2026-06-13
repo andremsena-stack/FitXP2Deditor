@@ -2,6 +2,14 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.1 (instruções detalhadas)
+- `GEM-INSTRUCTIONS.md` muito mais específico: **px @1024²** por âncora (chibi e lesschibi),
+  contorno (#1A1420, ~8px), cel-shading 3 tons + direção de luz, **paleta com hex** (roxo
+  #9118D6/#5E0E8B/#B57BE8, grafite #2B2B33, gelo #F4F4F0, rampa de pele neutra),
+  **pose/membros** (braços com vão p/ camada), **olhos-vazios** exato, regras de recolor,
+  tabela de **diferenças entre módulos** e **checklist de auto-verificação**.
+- Coordenadas (specs JSON) inalteradas.
+
 ## 2026-06-13 — v1 (inicial)
 - Estrutura do repo + auto-atualização do GEM via raw URLs (`GEM-BOOTSTRAP.md`).
 - `GEM-INSTRUCTIONS.md`: regras de saída (alpha real, sem xadrez/marca d'água, canvas
