@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-13 — v1.9 (muscle feminino = wellness, não masculino)
+- §10: muscle por gênero. Feminino = WELLNESS/atlético mantendo silhueta feminina (cintura/quadril, ombros não-masculinos); proibido trapézio/peitoral/ombros de fisiculturista masculino. (Motivo: muscle fem saindo masculinizado.)
+
 ## 2026-06-13 — v1.8 (gêneros análogos = mesma seed)
 - Problema: feminino divergindo do masculino no estilo. §10.5: ao gerar o gênero OPOSTO de um set aprovado, reutilizar a SEED EXATA do set aprovado + mesma referência (trava o traço/sombreado entre masc e fem; só a anatomia muda).
 

@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.8.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.9.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -199,6 +199,13 @@ Mesma altura, mesma cabeça, **mesma posição de TODAS as articulações**. Mud
 - **fit:** atlético moderado, peitoral/abdômen definidos sutis.
 - **muscle:** peitoral, dorsais e braços marcados; ombro largo. Sem alterar altura/largura
   total do sprite além das larguras de ombro especificadas.
+
+**MUSCLE POR GÊNERO (importante):**
+- **Masculino:** volumoso, ombro largo, peitoral/dorsais marcados (fisiculturista).
+- **Feminino = WELLNESS/atlético, NÃO masculinizado.** Definição muscular SIM, mas mantendo
+  a **silhueta feminina**: cintura marcada, quadril, ombros NÃO-masculinos. PROIBIDO
+  trapézio alto, peitoral "de homem", ombros/costas de fisiculturista masculino. Pense
+  "atleta wellness/fitness feminina", não "bodybuilder masculino com seios".
 
 **Largura de ombro (esclarecimento):** o ombro é SEMPRE ≥ a largura da cabeça; o
 afilamento em "V" (ombro largo → cintura fina) **cresce de slim → fit → muscle**, usando
