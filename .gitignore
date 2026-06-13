@@ -1,0 +1,6 @@
+# SO / editores
+.DS_Store
+Thumbs.db
+*.tmp
+.vscode/
+.idea/

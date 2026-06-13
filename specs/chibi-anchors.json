@@ -1,0 +1,44 @@
+{
+  "_README": "Contrato de registro do avatar V2 estilo CHIBI (FitXP). Toda camada chibi (corpo, olhos, cabelo, roupa, acessório) DEVE ser cortada/normalizada para esta caixa, com as âncoras abaixo alinhadas. Espelha o papel do anchors_master.json do LPC, porém na proporção chibi. Aprovado 2026-06-13. LESSCHIBI terá seu próprio spec (proporção diferente).",
+  "version": 1,
+  "style": "chibi",
+  "canvas": { "w": 256, "h": 256, "transparent": true },
+  "centerX": 128,
+  "anchors": {
+    "head_top":  { "y": 10,  "frac": 0.039, "group": "head" },
+    "eyes":      { "y": 46,  "frac": 0.180, "group": "head" },
+    "chin_neck": { "y": 92,  "frac": 0.359, "group": "head" },
+    "shoulders": { "y": 104, "frac": 0.406, "group": "torso" },
+    "hips":      { "y": 154, "frac": 0.602, "group": "torso" },
+    "feet":      { "y": 246, "frac": 0.961, "group": "base" }
+  },
+  "widths_px": {
+    "head": 88,
+    "shoulders_by_build": { "slim": 96, "fit": 112, "muscle": 132 }
+  },
+  "golden_rule": "Altura total e linha dos pés são FIXAS. O porte (slim → fit → muscle) muda apenas a LARGURA de ombros/tronco, nunca a altura nem a posição da cabeça/pés.",
+  "normalization": {
+    "order": [
+      "1. Garantir transparência real (fundo alpha=0; sem xadrez/marca d'água).",
+      "2. Recortar no conteúdo (trim por alpha) = bounding box do personagem.",
+      "3. Escalar de modo que head_top→feet ocupe de y=10 a y=246 (236px de figura).",
+      "4. Centralizar horizontalmente em centerX=128.",
+      "5. Compor na caixa 256×256 e salvar PNG."
+    ],
+    "tolerance_px": 3
+  },
+  "z_order": ["body", "shoes", "bottom", "top", "gloves", "eyes", "hair", "fx"],
+  "slots": {
+    "body":   { "axes": ["gender", "build", "skin"], "builds": ["slim", "fit", "muscle"], "note": "cabeça em branco/soquetes — rosto via overlay de olhos" },
+    "eyes":   { "axes": ["gender", "color"], "anchor": "eyes", "note": "overlay temático (paper-doll), módulo 1 da folha CHIBI" },
+    "hair":   { "axes": ["gender", "style", "color"], "anchor": "head_top..chin_neck", "note": "overlay sobre a cabeça; catálogo-alvo = cartas RAG" },
+    "top":    { "axes": ["gender", "build", "style", "color"], "anchor": "shoulders", "note": "roupa de academia FitXP (tank/compression/sports bra/shirt)" },
+    "bottom": { "axes": ["gender", "build", "style", "color"], "anchor": "hips", "styles": ["shorts", "leggings", "calca"] },
+    "shoes":  { "axes": ["color"], "anchor": "feet" }
+  },
+  "gender_builds_present_today": {
+    "masc": ["slim", "fit", "muscle"],
+    "fem":  ["slim", "fit", "muscle"]
+  },
+  "source_status": "Originais NBP atuais têm fundo xadrez pintado + marca d'água (sem alpha real). Pendente: re-export com transparência OU limpeza assistida antes de normalizar."
+}

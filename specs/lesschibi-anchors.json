@@ -1,0 +1,43 @@
+{
+  "_README": "Contrato de registro do avatar V2 estilo LESSCHIBI (FitXP). Proporção semi-realista (~5 cabeças), mais alta/madura que o chibi. Mesma lógica do chibi-anchors.json, porém cabeça MENOR e pernas mais longas. PROPOSTA 2026-06-13 (derivada das refs LESSCHIBI), ajustável como o chibi foi. Toda camada lesschibi DEVE ser normalizada para esta caixa/âncoras.",
+  "version": 1,
+  "style": "lesschibi",
+  "canvas": { "w": 256, "h": 256, "transparent": true },
+  "centerX": 128,
+  "anchors": {
+    "head_top":  { "y": 10,  "frac": 0.039, "group": "head" },
+    "eyes":      { "y": 36,  "frac": 0.141, "group": "head" },
+    "chin_neck": { "y": 61,  "frac": 0.238, "group": "head" },
+    "shoulders": { "y": 77,  "frac": 0.301, "group": "torso" },
+    "waist":     { "y": 118, "frac": 0.461, "group": "torso" },
+    "hips":      { "y": 136, "frac": 0.531, "group": "torso" },
+    "knees":     { "y": 189, "frac": 0.738, "group": "legs" },
+    "feet":      { "y": 246, "frac": 0.961, "group": "base" }
+  },
+  "widths_px": {
+    "head": 56,
+    "shoulders_by_build": { "slim": 82, "fit": 98, "muscle": 118 }
+  },
+  "golden_rule": "Altura total e linha dos pés são FIXAS. O porte (slim → fit → muscle) muda apenas a LARGURA de ombros/tronco, nunca a altura nem a posição de cabeça/articulações/pés.",
+  "head_ratio_note": "Cabeça ~⅕ da figura (semi-realista). Difere do chibi (~⅓). NÃO reutilizar % do chibi.",
+  "normalization": {
+    "order": [
+      "1. Garantir transparência real (alpha=0; sem xadrez/marca d'água).",
+      "2. Recortar no conteúdo (trim por alpha).",
+      "3. Escalar de modo que head_top→feet ocupe y=10..246 (236px de figura).",
+      "4. Centralizar em centerX=128.",
+      "5. Compor na caixa 256×256 e salvar PNG."
+    ],
+    "tolerance_px": 3
+  },
+  "z_order": ["body", "shoes", "bottom", "top", "gloves", "eyes", "hair", "fx"],
+  "slots": {
+    "body":   { "axes": ["gender", "build", "skin"], "builds": ["slim", "fit", "muscle"], "note": "estrutura facial (nariz/maxilar) sugerida; OLHOS VAZIOS p/ camada (modular, igual ao chibi)" },
+    "eyes":   { "axes": ["gender", "color"], "anchor": "eyes" },
+    "hair":   { "axes": ["gender", "style", "color"], "anchor": "head_top..chin_neck" },
+    "top":    { "axes": ["gender", "build", "style", "color"], "anchor": "shoulders" },
+    "bottom": { "axes": ["gender", "build", "style", "color"], "anchor": "hips", "styles": ["shorts", "leggings", "calca"] },
+    "shoes":  { "axes": ["color"], "anchor": "feet" }
+  },
+  "source_status": "MESMA regra do chibi: PNG com alpha real, sem xadrez, sem marca d'água. Gerar via NBP em canvas fixo quadrado; normalizar p/ 256² antes de aplicar."
+}

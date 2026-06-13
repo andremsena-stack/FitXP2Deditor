@@ -1,0 +1,45 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/andremsena-stack/FitXP2Deditor/main/specs/sheet-manifest.schema.json",
+  "title": "FitXP2D — Sheet Cut Manifest",
+  "description": "Manifesto 'mastigado' que acompanha QUALQUER folha (sheet) com vários itens/frames gerada no NBP, para o Claude cortar de forma determinística. O retângulo de cada célula é: x = col*(cell.w+gutter); y = row*(cell.h+gutter); w = cell.w; h = cell.h.",
+  "type": "object",
+  "required": ["sheet", "module", "canvas", "cell", "gutter", "cols", "rows", "cells"],
+  "properties": {
+    "sheet":  { "type": "string", "description": "id da folha, ex.: cabelos-femininos-chibi-v1" },
+    "module": { "type": "string", "enum": ["chibi", "lesschibi"] },
+    "canvas": { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2, "description": "[W,H] do PNG da folha em px" },
+    "cell":   { "type": "array", "items": { "type": "integer" }, "minItems": 2, "maxItems": 2, "description": "[w,h] de cada célula (= canvas do módulo)" },
+    "gutter": { "type": "integer", "minimum": 0, "description": "espaço transparente uniforme entre células (px)" },
+    "cols":   { "type": "integer", "minimum": 1 },
+    "rows":   { "type": "integer", "minimum": 1 },
+    "order":  { "type": "string", "default": "left-to-right, top-to-bottom" },
+    "seed":   { "type": ["integer", "string"], "description": "seed fixa usada na geração (consistência de estilo)" },
+    "cells": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["row", "col", "name", "slot"],
+        "properties": {
+          "row":     { "type": "integer", "minimum": 0 },
+          "col":     { "type": "integer", "minimum": 0 },
+          "name":    { "type": "string", "description": "nome do arquivo final, padrão <slot>-<genero>-<modulo>-<desc>" },
+          "slot":    { "type": "string", "enum": ["corpo", "olhos", "cabelo", "top", "bottom", "tenis", "luvas", "oculos", "fx"] },
+          "gender":  { "type": "string", "enum": ["masc", "fem", "unissex"] },
+          "build":   { "type": "string", "enum": ["slim", "fit", "muscle"], "description": "só p/ slot=corpo/top/bottom" },
+          "variant": { "type": "string", "description": "estilo/cor/frame, ex.: longo, preto, frame00" }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "sheet": "cabelos-femininos-chibi-v1", "module": "chibi",
+      "canvas": [3072, 2048], "cell": [1024, 1024], "gutter": 0, "cols": 3, "rows": 2, "seed": 73219,
+      "cells": [
+        { "row": 0, "col": 0, "name": "cabelo-feminino-chibi-longo", "slot": "cabelo", "gender": "fem", "variant": "longo" },
+        { "row": 0, "col": 1, "name": "cabelo-feminino-chibi-rabo",  "slot": "cabelo", "gender": "fem", "variant": "rabo" }
+      ]
+    }
+  ]
+}
