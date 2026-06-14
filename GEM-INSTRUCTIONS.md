@@ -4,7 +4,7 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.13.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.14.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
@@ -159,6 +159,13 @@ pernas curtas/tronco longo (virilha caindo p/ ~65%) enquanto o masculino tem per
 (virilha ~55%) → parecem de escalas diferentes. **A virilha fica em 60% nos dois.** Ao gerar
 o gênero oposto, anexe o corpo do gênero já pronto como REFERÊNCIA DE PROPORÇÃO (mesma seed)
 e bata exatamente nessas linhas.
+
+**⚠️ TAMANHO da cabeça e LARGURA do corpo também são IGUAIS entre os gêneros (não só a
+posição).** Erro observado: o feminino saiu **mais longilíneo** — cabeça MENOR e mais
+ESTREITA, corpo mais estreito e pernas mais longas que o masculino. PROIBIDO. A cabeça do
+feminino deve ter a **MESMA altura E a MESMA largura** da cabeça do masculino (cabeça grande
+chibi), e o frame do corpo a **mesma largura-base**. **NÃO afine nem alongue o feminino** —
+ele só ganha cintura/quadril/busto sobre o MESMO esqueleto e a MESMA cabeça do masculino.
 
 ---
 

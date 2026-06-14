@@ -2,6 +2,9 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-14 — v1.14 (cabeça/frame do feminino = iguais ao masculino)
+- Auditoria: feminino saiu mais longilíneo (cabeça menor/estreita, corpo estreito, pernas longas). §6: TAMANHO e LARGURA da cabeça + largura-base do corpo são IGUAIS entre gêneros (não só a posição). Proibido afinar/alongar o feminino; ele só ganha cintura/quadril/busto sobre o MESMO esqueleto e MESMA cabeça do masculino.
+
 ## 2026-06-13 — v1.13 (seed canônica travada por DNA)
 - Seed aprovada vira CANÔNICA do módulo, gravada em `approved_seed` do spec. CHIBI = 8712395610. Toda geração chibi (qualquer slot/gênero/porte) usa essa seed. lesschibi: approved_seed=null até aprovar o 1º set. Regra 7 e Regra de Ouro atualizadas.
 
