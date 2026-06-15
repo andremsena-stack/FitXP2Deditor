@@ -4,9 +4,17 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.18.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.19.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
-> **v1.18 (NOVO):** coordenadas medidas nos prompts (§9) — cabeça @256 (coroa y10,
+> **v1.19 (NOVO) — §14 OTIMIZAÇÃO DE GERAÇÃO (PixelLab):** (1) **contorno-guia CIANO
+> #18CAB5 2px** opcional: desenhar a silhueta com esse teal — o Claude o REMOVE (não
+> recolore, p/ não engrossar o outline). (2) **VAZADO/HOLLOW:** aberturas (gola, cavas,
+> pernas, faixa-dos-olhos do ninja) 100% transparentes — nunca a face interna/avesso.
+> (3) **1:1 com o corpo anexado:** gerar no tamanho do modelo (cabelo=cabeça ~71px, não
+> encher o canvas; roupa=silhueta do corpo). (4) **roupa BUILD-AWARE:** moldar ao porte
+> (slim/fit/muscle), nome `<slot>-<gen>-<porte>-<família>`. (5) **TRAJE full-body** (ninja/
+> samurai/tsunade) cobre o corpo e é exclusivo do porte muscle.
+> **v1.18:** coordenadas medidas nos prompts (§9) — cabeça @256 (coroa y10,
 > orelha-a-orelha x92–162/71px, olhos masc y48–61 / fem y45–58); cabelo via PixelLab
 > (alpha real, alternativa ao ciano). Facilita gerar acertando o encaixe de 1ª.
 > **v1.17:** CABELO LONGO em paper-doll (§9) — abaixo do pescoço o cabelo deve
@@ -391,6 +399,32 @@ pintar fundo (transparente real); sem marca d'água, texto ou xadrez.**
 - [ ] Contorno #1A1420 ~8px; cel-shading 3 tons; sem gradiente.
 - [ ] Nome em texto no padrão; SEED registrada.
 - [ ] Se SHEET: manifesto JSON anexado e matematicamente consistente.
+
+---
+
+## 14) OTIMIZAÇÃO DE GERAÇÃO (PixelLab / alpha real) — aprendido na produção (v1.19)
+O PixelLab virou a fonte preferida de cabelo/roupa (alpha real nativo). Regras que mais
+reduzem retrabalho de encaixe:
+
+1. **CONTORNO-GUIA CIANO `#18CAB5` (2px) — opcional, RECOMENDADO.** Pode desenhar a silhueta
+   da peça/figura com um contorno teal #18CAB5 de 2px. O Claude **REMOVE** esse teal no corte
+   (key + de-spill), **não recolore** — recolorir engrossaria o outline ao compor sobre o corpo.
+   Serve como guia de silhueta/corte. (Cabelo pode vir com o teal traçando a cabeça/corpo todo.)
+2. **VAZADO / HOLLOW — NUNCA a face interna.** Gola, cavas, fim de manga, aberturas das pernas
+   e a **faixa-dos-olhos** (ninja) ficam 100% TRANSPARENTES. Não desenhar forro/avesso/parte de
+   trás por dentro das aberturas — senão tapa o corpo e dá conflito ao "vestir".
+3. **TAMANHO 1:1 com o CORPO ANEXADO.** Anexar sempre o corpo do porte alvo e gerar a peça **na
+   escala dele**: cabelo = do tamanho da CABEÇA (~71px, ⅓ do quadro — NÃO encher o canvas 256²);
+   roupa = moldada na silhueta do corpo. Pronta p/ sobrepor sem redimensionar.
+4. **ROUPA é BUILD-AWARE.** top/bottom moldam à largura do porte (slim/fit/muscle). Nome:
+   **`<slot>-<gênero>-<porte>-<família>`** (ex.: `top-masculino-fit-regata-preta`). cabelo/olhos/
+   tênis são **build-free** (cabeça/pés iguais entre portes) → 1 arquivo serve os 3 portes.
+5. **TRAJE full-body (slot novo).** Ninja/samurai/tsunade etc. cobrem o corpo inteiro (e a cabeça,
+   no ninja, com faixa-dos-olhos vazada). Nome `traje-<gênero>-chibi-<nome>`. São **exclusivos do
+   porte muscle** (modelados nele). Ao equipar, escondem top/bottom/shoes (e cabelo/olhos quando
+   cobrem a cabeça).
+6. **NOME DO ARQUIVO:** evite ` (cópia)`/duplicação no nome dentro dos parênteses (atrapalha o
+   casamento por nome no corte). 1 peça por imagem, nome em TEXTO.
 
 ---
 

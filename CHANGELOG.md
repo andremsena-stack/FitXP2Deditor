@@ -7,6 +7,10 @@ Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coo
 - **§9 cabelo PixelLab:** documentada a alternativa **alpha real** (PixelLab) ao template ciano — só cabelo em fundo transparente; o Claude reescala (modo `--transparent`: largura 1.24× orelha = ~88px, coroa y1). Sem mudança nas coordenadas dos JSON.
 - (Lado Claude: `place_hair.py` ganhou `--transparent`; olhos masc re-ancorados +3px no app; `AI-STUDIO-SYSTEM-INSTRUCTIONS.md` espelhado.)
 
+## 2026-06-15 — v1.19 (§14 otimização de geração PixelLab)
+- **§14 (novo):** consolidou as regras aprendidas na produção em massa via PixelLab: (1) contorno-guia CIANO #18CAB5 2px — REMOVIDO no corte, não recolorido (não engrossa outline); (2) VAZADO/hollow nas aberturas (gola/cavas/pernas/faixa-olhos) — nunca face interna; (3) tamanho 1:1 com o corpo anexado (cabelo=cabeça ~71px, não encher canvas; roupa=silhueta do porte); (4) roupa BUILD-AWARE `<slot>-<gen>-<porte>-<família>`; (5) TRAJE full-body (ninja/samurai/tsunade), exclusivo muscle, esconde slots cobertos; (6) sem " (cópia)" no nome. Sem mudança nas coordenadas dos JSON.
+- (Lado Claude/app: avatar CHIBI v2 virou o ATUAL — compositor `ChibiAvatar` + editor `ChibiCreator` + manifesto `chibi-pack.generated.ts` + slot `traje` + gating por porte/premium. Tools de corte: `place_hair.py` (--transparent/--decyan), `place_clothing.py`, `build_chibi_manifest.py`. Doc de integração: AVATAR-GAMIFICATION-ARCHITECTURE.md §5.V2.)
+
 ## 2026-06-15 — v1.17 (cabelo longo: silhueta do corpo, sem "fundo")
 - **§9 cabelo:** cabelo é compartilhado entre slim/fit/muscle (larguras diferentes). Abaixo do
   pescoço/queixo o cabelo DEVE acompanhar a silhueta do corpo ciano (mechas coladas ao contorno,
