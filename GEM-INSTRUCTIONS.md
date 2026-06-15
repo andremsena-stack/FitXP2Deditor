@@ -251,6 +251,10 @@ mescle a peça a um corpo completo (salvo se eu pedir um preview montado).
   cima**, mantendo ciano e magenta intactos. **NUNCA** desenhe rosto, olhos, orelha, queixo,
   pescoço, pele **nem o contorno preto de um rosto/cabeça** (esse contorno sujava o corte —
   por isso o ciano). O rosto fica ciano (vira transparente no corte). **1 cabelo por imagem.**
+  **NÃO redimensione, reposicione nem redesenhe o corpo/cabeça ciano do template** — devolva-o
+  IDÊNTICO ao anexo (mesma escala, mesmo lugar). O Claude registra o cabelo pela CABEÇA CIANA
+  (linha das bochechas/orelhas); se você encolher/mover o corpo ciano (erro já visto no
+  "espetado", desenhado ~30% menor), o encaixe fica trabalhoso. Mantenha o ciano fiel.
   **Encaixe JUSTO na cabeça (crítico p/ alinhar):** a **coroa ENCOSTA e cobre o topo do
   crânio** (não flutue, não deixe vão careca); a **linha do cabelo** cruza a testa logo acima
   da linha de olhos; as **laterais descem até ~altura da orelha**; **largura HUGA a cabeça

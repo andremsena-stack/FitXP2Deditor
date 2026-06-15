@@ -2,6 +2,10 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-14 — v1.16 (cabelo: preservar o corpo ciano do template)
+- **§9 cabelo:** o GEM deve devolver o **corpo/cabeça CIANO IDÊNTICO ao template** (mesma escala/posição) — desenhar SÓ o cabelo por cima. Motivo: o lado Claude registra o cabelo pela **cabeça ciana** (linha das bochechas/orelhas, visível sob o cabelo) e mapeia p/ a cabeça real do corpo; se o GEM encolhe/move o corpo ciano (visto no "espetado", ~30% menor), o encaixe vira trabalho manual. Sem mudança de coordenadas.
+- (Lado Claude: `place_hair.py` reescrito — registro pela bochecha ciana → bochecha do corpo, com `--scale`/`--dy` de ajuste fino; params aprovados curto/espetado/bagunçado/longo travados. Substitui o crown-guess que desencaixava.)
+
 ## 2026-06-14 — v1.15 (chroma por slot + módulos olhos/cabelo)
 - **CHROMA POR SLOT (§1.5, novo):** o fundo de corte muda por slot porque não pode ser uma cor que o sprite contém. corpo/roupas/tênis = verde #00FF00; **olhos = magenta #FF00FF** (a íris pode ser verde); **cabelo = template CIANO** (cor de cabelo pode ser verde + evita contorno-de-rosto). Magenta #FF00FF ≠ roxo de marca #9118D6. Regra de Ouro #1 e §1 regra 3 atualizadas (a antiga proibição de magenta foi reconciliada).
 - **Módulo OLHOS (§9):** overlay **sobrancelha+olho** sobre magenta, sem rosto; gênero × cor (castanho/azul/verde); folha 3×2 (masc cima/fem baixo) ou item. Ancoragem no soquete (~0.56× cabeça, canal do rosto).
