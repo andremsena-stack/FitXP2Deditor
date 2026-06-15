@@ -1,6 +1,6 @@
 {
   "_README": "Contrato de registro do avatar V2 estilo CHIBI (FitXP). Toda camada chibi (corpo, olhos, cabelo, roupa, acessório) DEVE ser cortada/normalizada para esta caixa, com as âncoras abaixo alinhadas. NAO e LPC nem grade 64x64 (isso e a V1 do app) -- e a proporcao PROPRIA do chibi (cabeca ~1/3), pose frontal UNICA. Aprovado 2026-06-13. LESSCHIBI tem seu proprio spec (cabeca ~1/5).",
-  "version": 1,
+  "version": 2,
   "style": "chibi",
   "approved_seed": 8712395610,
   "_approved_seed_note": "SEED CANÔNICA do DNA chibi (travada ao ser aprovada). TODA geração chibi — qualquer slot, qualquer gênero — DEVE usar esta seed, p/ tudo casar. Só muda se o usuário aprovar uma nova.",
@@ -29,11 +29,11 @@
     ],
     "tolerance_px": 3
   },
-  "z_order": ["body", "shoes", "bottom", "top", "gloves", "eyes", "hair", "fx"],
+  "z_order": ["hair_back", "body", "shoes", "bottom", "top", "gloves", "eyes", "hair_front", "fx"],
   "slots": {
     "body":   { "axes": ["gender", "build", "skin"], "builds": ["slim", "fit", "muscle"], "note": "cabeça em branco/soquetes — rosto via overlay de olhos" },
-    "eyes":   { "axes": ["gender", "color"], "anchor": "eyes", "note": "overlay temático (paper-doll), módulo 1 da folha CHIBI" },
-    "hair":   { "axes": ["gender", "style", "color"], "anchor": "head_top..chin_neck", "note": "overlay sobre a cabeça; catálogo-alvo = cartas RAG" },
+    "eyes":   { "axes": ["gender", "color"], "anchor": "eyes", "note": "overlay temático (paper-doll), módulo 1 da folha CHIBI", "measured_box": "CORPO-FEMININO.pxo (2026-06-15): sobrancelha+olho y46..60 (~15px alt), x103..152 (~50px ≈0.56× head 88), centerX 128; sobrancelha y46-49, olho y50-60." },
+    "hair":   { "axes": ["gender", "style", "color"], "anchor": "head_top..chin_neck", "note": "overlay sobre a cabeça. DUAS CAMADAS: '-frente' (z=hair_front) e '-tras' (z=hair_back, atrás do corpo). Naming: cabelo-<gen>-chibi-<style>-<color>-{frente|tras}.png. Ancoragem pela CAVIDADE do rosto; corte no queixo (y92).", "long_hair_clip": "Abaixo do pescoço, a '-tras' é recortada ao ALFA do corpo renderizado + ~5px na composição (clip por porte). 1 asset serve slim/fit/muscle.", "reserve_zone": "CORPO-FEMININO.pxo (2026-06-15): calota encerra no queixo (~y88), linha do cabelo ~y40. Abaixo de y≈88 o centro x≈95..160 (pescoço+tronco) fica LIVRE. Tail longa = 1 mecha estreita numa lateral (ex. x62..74), nunca cortina sobre o peito. Default: cabelo termina no queixo." },
     "top":    { "axes": ["gender", "build", "style", "color"], "anchor": "shoulders", "note": "roupa de academia FitXP (tank/compression/sports bra/shirt)" },
     "bottom": { "axes": ["gender", "build", "style", "color"], "anchor": "hips", "styles": ["shorts", "leggings", "calca"] },
     "shoes":  { "axes": ["color"], "anchor": "feet" }

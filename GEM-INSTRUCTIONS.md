@@ -4,9 +4,16 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.15.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.18.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
-> **v1.15 (NOVO):** CHROMA POR SLOT (§1.5) — corpo/roupas=verde, **olhos=magenta**,
+> **v1.18 (NOVO):** coordenadas medidas nos prompts (§9) — cabeça @256 (coroa y10,
+> orelha-a-orelha x92–162/71px, olhos masc y48–61 / fem y45–58); cabelo via PixelLab
+> (alpha real, alternativa ao ciano). Facilita gerar acertando o encaixe de 1ª.
+> **v1.17:** CABELO LONGO em paper-doll (§9) — abaixo do pescoço o cabelo deve
+> acompanhar a silhueta do corpo ciano (ou não descer); proibido cabelo abaixo do pescoço
+> fora do corpo (sobre o fundo) ou cortina cheia sobre o tronco. Lado Claude: a camada
+> `-tras` é recortada ao alfa do corpo + borda no momento da composição (clip por porte).
+> **v1.15:** CHROMA POR SLOT (§1.5) — corpo/roupas=verde, **olhos=magenta**,
 > **cabelo=TEMPLATE CIANO**; módulos OLHOS (sobrancelha+olho) e CABELO (template ciano,
 > só cabelo, encaixe justo na cabeça) reescritos (§9). Aprendido na produção dos sets aprovados.
 
@@ -245,7 +252,10 @@ mescle a peça a um corpo completo (salvo se eu pedir um preview montado).
   **gênero × cor** (íris castanho/azul/verde; a íris pode ser verde → por isso magenta, não
   verde). Pode vir **folha 3×2** (masc em cima, fem embaixo; colunas = cor) ou item. O Claude
   ancora o par no soquete (largura ~0.56× cabeça, centro do canal do rosto). Olho nunca é baked
-  no corpo — sempre camada separada.
+  no corpo — sempre camada separada. **Medido (.pxo do usuário, 2026-06-15):** no canvas 256²
+  a caixa sobrancelha+olho tem **largura ~47px** (≈0.66× cabeça), **centro x127**, altura ~14px.
+  Posição vertical por gênero: **MASCULINO y48..61** (centro cy54 — descido 3px p/ assentar sob a
+  franja do cabelo), **FEMININO y45..58** (cy51). Usar como alvo de posição/tamanho.
 - **cabelo (TEMPLATE CIANO — método novo v1.15):** o usuário anexa um **template** = figura
   **CIANO #00FFFF** (corpo+cabeça) sobre fundo **MAGENTA #FF00FF**. **Desenhe SÓ o cabelo por
   cima**, mantendo ciano e magenta intactos. **NUNCA** desenhe rosto, olhos, orelha, queixo,
@@ -259,9 +269,31 @@ mescle a peça a um corpo completo (salvo se eu pedir um preview montado).
   crânio** (não flutue, não deixe vão careca); a **linha do cabelo** cruza a testa logo acima
   da linha de olhos; as **laterais descem até ~altura da orelha**; **largura HUGA a cabeça
   (~1.0× a largura da cabeça)** — justo, sem capacete gigante. **Volume** (espetado/bagunçado)
-  sobe ACIMA do topo enquanto a coroa segue cobrindo o crânio; **longo** desce sobre o corpo
-  ciano. Cor base = castanho médio (recolor depois) salvo se pedir outra. **CHIBI** = volume
-  maior/arredondado (cabeça ⅓); **LESSCHIBI** = menor/mais alongado (cabeça ⅕).
+  sobe ACIMA do topo enquanto a coroa segue cobrindo o crânio. Cor base = castanho médio
+  (recolor depois) salvo se pedir outra. **CHIBI** = volume maior/arredondado (cabeça ⅓);
+  **LESSCHIBI** = menor/mais alongado (cabeça ⅕).
+  **Coordenadas medidas da cabeça (@256, CHIBI):** coroa/topo do crânio **y10**;
+  **orelha-a-orelha = x92→162 (71px) na faixa y52–60**; linha de olhos ~y50; queixo ~y82–88.
+  Logo o cabelo cobre **x≈92–162** (largura 71–88px, 1.0–1.24× cabeça), coroa em **y≈1–10**
+  (volume acima), centro **x≈127**.
+- **cabelo via PixelLab (alpha real — alternativa ao ciano):** se gerado no PixelLab, devolve
+  **fundo TRANSPARENTE** e **só cabelo** (sem ciano/magenta). Mesmo envelope de cabeça acima.
+  Tende a sair grande → o Claude reescala (modo `--transparent`: largura 1.24× orelha-a-orelha
+  = ~88px, coroa y1, centro x127). Pode anexar um corpo aprovado como ref de estilo/proporção.
+- **CABELO LONGO + ESPAÇO RESERVADO (pescoço/tronco) — REGRA CRÍTICA p/ paper-doll:** o cabelo é
+  **compartilhado** entre slim/fit/muscle (larguras diferentes). **Referência medida do usuário
+  (CORPO-FEMININO.pxo, 2026-06-15, canvas 256²):** a calota cobre a cabeça e **ENCERRA no queixo
+  (~y88)**; a linha do cabelo cruza a testa ~y40. **ABAIXO de y≈88, o centro (x≈95..160 =
+  pescoço + tronco) fica LIVRE de cabelo.** Regra:
+  1. **Default:** o cabelo termina no queixo — **reserve o pescoço e o tronco** (não desça massa
+     pelo centro).
+  2. **Tail longa** (trança/rabo): **UMA mecha estreita** caindo por **UMA lateral**, fora do
+     eixo do corpo (no exemplo x62..74, à esquerda do ombro) — **nunca** uma cortina/massa sobre
+     o peito.
+  3. Se o estilo for esvoaçante e descer pelos lados, as mechas **acompanham coladas a silhueta
+     do corpo ciano** (mesma largura, ombro→braço→cintura). **NUNCA** cabelo abaixo do pescoço
+     **fora do corpo ciano** (sobre o fundo) nem massa interna sobre o tronco — vira erro de corte
+     (cobre o tronco OU flutua sobre o fundo).
 - **top:** alinhado **ombros→cintura**; largura do **porte**; defina gola/decote e mangas
   conforme o tipo (tank, regata, compression, sports bra, camiseta). Lesschibi = tronco mais
   estreito/alto.

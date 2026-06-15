@@ -2,6 +2,23 @@
 
 Formato: data · o que mudou. Suba o campo `version` do JSON quando mexer em coordenadas.
 
+## 2026-06-15 — v1.18 (coordenadas medidas nos prompts)
+- **§9 (olhos/cabelo):** prompts ganharam as coordenadas reais @256 (medidas dos assets aprovados + .pxo do usuário) p/ acertar o encaixe na geração: cabeça coroa **y10**, **orelha-a-orelha x92–162 (71px)** em y52–60, queixo ~y82; **olhos masc y48–61 (cy54, descidos 3px sob a franja) / fem y45–58 (cy51)**, par ~47px centro x127; cabelo cobre x92–162 (1.0–1.24× cabeça), coroa y1–10, centro x127.
+- **§9 cabelo PixelLab:** documentada a alternativa **alpha real** (PixelLab) ao template ciano — só cabelo em fundo transparente; o Claude reescala (modo `--transparent`: largura 1.24× orelha = ~88px, coroa y1). Sem mudança nas coordenadas dos JSON.
+- (Lado Claude: `place_hair.py` ganhou `--transparent`; olhos masc re-ancorados +3px no app; `AI-STUDIO-SYSTEM-INSTRUCTIONS.md` espelhado.)
+
+## 2026-06-15 — v1.17 (cabelo longo: silhueta do corpo, sem "fundo")
+- **§9 cabelo:** cabelo é compartilhado entre slim/fit/muscle (larguras diferentes). Abaixo do
+  pescoço/queixo o cabelo DEVE acompanhar a silhueta do corpo ciano (mechas coladas ao contorno,
+  mesma largura) OU não descer (parar no ombro). PROIBIDO: cabelo abaixo do pescoço fora do corpo
+  ciano (sobre o fundo magenta) ou cortina cheia cobrindo o tronco — vira erro de corte (massa
+  interna cobre o tronco ou mechas flutuam sobre o fundo). Resumo: abaixo do pescoço, cabelo só
+  onde há corpo por baixo, justo à silhueta.
+- (Lado Claude: a camada `-tras` é recortada ao **alfa do corpo renderizado + borda ~5px** no
+  momento da composição = clip dinâmico por porte; 1 asset serve os 3 portes. Documentado em
+  `chibi-anchors.json` slot hair `long_hair_clip`. Ancoragem do cabelo passou a ser pela CAVIDADE
+  do rosto, e cada estilo vira 2 camadas `-frente`/`-tras` cortadas no queixo.)
+
 ## 2026-06-14 — v1.16 (cabelo: preservar o corpo ciano do template)
 - **§9 cabelo:** o GEM deve devolver o **corpo/cabeça CIANO IDÊNTICO ao template** (mesma escala/posição) — desenhar SÓ o cabelo por cima. Motivo: o lado Claude registra o cabelo pela **cabeça ciana** (linha das bochechas/orelhas, visível sob o cabelo) e mapeia p/ a cabeça real do corpo; se o GEM encolhe/move o corpo ciano (visto no "espetado", ~30% menor), o encaixe vira trabalho manual. Sem mudança de coordenadas.
 - (Lado Claude: `place_hair.py` reescrito — registro pela bochecha ciana → bochecha do corpo, com `--scale`/`--dy` de ajuste fino; params aprovados curto/espetado/bagunçado/longo travados. Substitui o crown-guess que desencaixava.)
