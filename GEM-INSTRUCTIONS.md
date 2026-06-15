@@ -4,8 +4,11 @@
 > O GEM deve **reler estas regras a cada tarefa** e obedecer à versão MAIS RECENTE.
 > Repo: https://github.com/andremsena-stack/FitXP2Deditor — branch `main`.
 > Specs JSON em `/specs/`. Schema do manifesto em `/specs/sheet-manifest.schema.json`.
-> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.14.**
+> Histórico em `/CHANGELOG.md`. **Versão deste documento: v1.15.**
 > (Consolida e SUBSTITUI o antigo prompt single-shot — tudo dele está aqui, melhorado.)
+> **v1.15 (NOVO):** CHROMA POR SLOT (§1.5) — corpo/roupas=verde, **olhos=magenta**,
+> **cabelo=TEMPLATE CIANO**; módulos OLHOS (sobrancelha+olho) e CABELO (template ciano,
+> só cabelo, encaixe justo na cabeça) reescritos (§9). Aprendido na produção dos sets aprovados.
 
 Geramos no NBP o máximo possível e entregamos um formato **mastigado** (pronto p/ corte)
 para o Claude recortar e aplicar no app FITXP. Dois módulos: **CHIBI** e **LESSCHIBI**.
@@ -14,7 +17,10 @@ Tudo é **paper-doll**: camadas que se sobrepõem com registro exato.
 ---
 
 ## ★ REGRAS DE OURO (resumo — o resto do doc detalha cada uma)
-1. **Fundo:** alpha real OU **verde #00FF00 chapado**. NUNCA xadrez, gradiente ou marca d'água.
+1. **Fundo = CHROMA POR SLOT** (§1.5): corpo/roupas/tênis = **verde #00FF00**; **olhos = magenta
+   #FF00FF**; **cabelo = TEMPLATE CIANO** (figura ciano #00FFFF sobre fundo magenta #FF00FF).
+   Sempre CHAPADO/uniforme. NUNCA xadrez, gradiente ou marca d'água. **Regra:** o chroma NUNCA
+   pode ser uma cor que o próprio sprite contém.
 2. **Canvas:** quadrado fixo (1024²). **Pose frontal ÚNICA**, simétrica, braços com vão.
 3. **Estilo:** pixel art **cel-shading 3 tons** (sem gradiente/blur), contorno **#1A1420 ~8px**.
    NÃO é vetor liso, NÃO é LPC.
@@ -51,11 +57,12 @@ Cite a `version` dos JSON que usou.
 2. **PROIBIDO SEMPRE: fundo XADREZ/quadriculado, gradiente de fundo e qualquer padrão.**
    O xadrez é só indicador de transparência do editor — pintá-lo = ERRADO e **impossível
    de recortar limpo**.
-3. **Fallback de corte (se e somente se o alpha real não for possível):** use **fundo
-   SÓLIDO CHAPADO de UMA cor única não usada no sprite = verde-croma `#00FF00`** —
-   totalmente uniforme, sem padrão, sem gradiente, sem marca d'água. (O Claude recorta por
-   chroma.) **Nunca** use xadrez, nem cor próxima das do personagem (nada de magenta/roxo,
-   que conflita com a marca).
+3. **Fundo de corte = CHROMA POR SLOT (§1.5).** Use **fundo SÓLIDO CHAPADO de UMA cor única
+   que o sprite NÃO contém**, totalmente uniforme (sem padrão/gradiente/marca). (O Claude
+   recorta por chroma.) A cor depende do slot: **corpo/roupas/tênis → verde `#00FF00`**;
+   **olhos → magenta `#FF00FF`** (a íris pode ser verde, então verde comeria o olho);
+   **cabelo → template CIANO** (a cor do cabelo pode ser verde). **Nunca** xadrez nem cor
+   próxima das do conteúdo daquele slot. (Magenta #FF00FF é chroma de rosto, ≠ roxo de marca #9118D6.)
 4. **PROIBIDO marca d'água, texto, logo de IA, assinatura ou ruído** na imagem (nem no
    canto, nem por cima do personagem).
 5. **Canvas FIXO 1024×1024 px, quadrado, IDÊNTICO p/ todos os sprites do módulo.**
@@ -73,6 +80,24 @@ Cite a `version` dos JSON que usou.
 **⚠️ CHIBI e LESSCHIBI NÃO são LPC.** Não use grid LPC 64×64, direções de walk (south/etc.)
 nem frames de animação. Cada sprite é **uma pose frontal ÚNICA** no canvas 1024² do módulo,
 com a PRÓPRIA proporção (chibi cabeça ~⅓; lesschibi ~⅕). LPC é outra coisa (a V1 do app).
+
+---
+
+## 1.5) CHROMA POR SLOT — fundo de corte (NOVO v1.15, aprendido na produção)
+**Princípio:** o fundo de corte é sempre uma cor CHAPADA que o sprite daquele slot **nunca
+contém** (senão o corte come parte do desenho). Por isso o chroma MUDA por slot:
+
+| Slot | Fundo de corte | Por quê |
+|---|---|---|
+| **corpo, top, bottom, tênis, luvas** | **VERDE #00FF00** chapado | conteúdo não é verde |
+| **olhos** | **MAGENTA #FF00FF** chapado | a íris pode ser **verde** → chroma verde comeria o olho |
+| **cabelo** | **TEMPLATE CIANO** (ver §9 cabelo) | a cor do cabelo pode ser verde; o ciano também evita o contorno-de-rosto |
+| **óculos/fx coloridos** | a cor que o item NÃO usa (verde ou magenta) | mesma regra |
+
+- **Magenta #FF00FF** é o chroma de overlays de ROSTO (olhos/cabelo). NÃO confundir com o roxo
+  de marca **#9118D6** (esse é cor de sprite/FX, nunca fundo).
+- Sempre **uma única cor, 100% uniforme, sem gradiente/padrão/marca**. Alpha real continua sendo
+  o ideal; o chroma é o fallback de produção (é o que o Claude usa hoje).
 
 ---
 
@@ -215,13 +240,24 @@ mescle a peça a um corpo completo (salvo se eu pedir um preview montado).
 - **corpo:** base nua, **olhos vazios** (área do olho = pele lisa com leve soquete/sombra,
   SEM íris/pupila/cílios/sobrancelha), **sem cabelo**, **sem roupa**. Pele = rampa neutra
   (§3). 3 portes mudam **só a largura** (slim/fit/muscle); altura/articulações/cabeça FIXAS.
-- **olhos:** APENAS os olhos, na **linha de olhos** do módulo, simétricos no eixo, largura
-  ≈ da cabeça; resto transparente. Variações por cor. Encaixam no soquete vazio.
-- **cabelo:** cobre o crânio do **topo da cabeça** ao **queixo**; largura ≈ da cabeça do
-  módulo; pode extravasar p/ cima (topete) e laterais/abaixo (rabo/longo) usando a margem
-  0–4% e além, mas **ancorado ao crânio**. Não cubra os olhos (deixe a faixa de olhos livre,
-  salvo franja proposital). **CHIBI** = volume maior/arredondado (cabeça ⅓); **LESSCHIBI** =
-  menor/mais alongado (cabeça ⅕). Recolorível (1 cor base) ou gerar por cor.
+- **olhos (fundo = MAGENTA #FF00FF):** overlay **sobrancelha + olho** (par), na **linha de
+  olhos**, simétrico no eixo; resto = magenta chapado. SEM rosto/pele/nariz/boca. Variações por
+  **gênero × cor** (íris castanho/azul/verde; a íris pode ser verde → por isso magenta, não
+  verde). Pode vir **folha 3×2** (masc em cima, fem embaixo; colunas = cor) ou item. O Claude
+  ancora o par no soquete (largura ~0.56× cabeça, centro do canal do rosto). Olho nunca é baked
+  no corpo — sempre camada separada.
+- **cabelo (TEMPLATE CIANO — método novo v1.15):** o usuário anexa um **template** = figura
+  **CIANO #00FFFF** (corpo+cabeça) sobre fundo **MAGENTA #FF00FF**. **Desenhe SÓ o cabelo por
+  cima**, mantendo ciano e magenta intactos. **NUNCA** desenhe rosto, olhos, orelha, queixo,
+  pescoço, pele **nem o contorno preto de um rosto/cabeça** (esse contorno sujava o corte —
+  por isso o ciano). O rosto fica ciano (vira transparente no corte). **1 cabelo por imagem.**
+  **Encaixe JUSTO na cabeça (crítico p/ alinhar):** a **coroa ENCOSTA e cobre o topo do
+  crânio** (não flutue, não deixe vão careca); a **linha do cabelo** cruza a testa logo acima
+  da linha de olhos; as **laterais descem até ~altura da orelha**; **largura HUGA a cabeça
+  (~1.0× a largura da cabeça)** — justo, sem capacete gigante. **Volume** (espetado/bagunçado)
+  sobe ACIMA do topo enquanto a coroa segue cobrindo o crânio; **longo** desce sobre o corpo
+  ciano. Cor base = castanho médio (recolor depois) salvo se pedir outra. **CHIBI** = volume
+  maior/arredondado (cabeça ⅓); **LESSCHIBI** = menor/mais alongado (cabeça ⅕).
 - **top:** alinhado **ombros→cintura**; largura do **porte**; defina gola/decote e mangas
   conforme o tipo (tank, regata, compression, sports bra, camiseta). Lesschibi = tronco mais
   estreito/alto.
@@ -308,7 +344,10 @@ pintar fundo (transparente real); sem marca d'água, texto ou xadrez.**
 ---
 
 ## 13) CHECKLIST DE AUTO-VERIFICAÇÃO (antes de entregar)
-- [ ] Fundo 100% transparente (alpha real), **sem xadrez**, sem marca d'água/texto.
+- [ ] Fundo = alpha real OU **chroma chapado do slot** (§1.5: corpo/roupa=verde, olhos=magenta,
+      cabelo=template ciano), **sem xadrez/gradiente**, sem marca d'água/texto.
+- [ ] Se **olhos**: par sobrancelha+olho, sem rosto, fundo magenta. Se **cabelo**: SÓ cabelo
+      sobre o template ciano (sem rosto/contorno), coroa encostando no crânio, largura ~1.0× cabeça.
 - [ ] Canvas exatamente 1024×1024 (ou folha = múltiplos exatos, §4B).
 - [ ] Âncoras do módulo batendo (topo cabeça, olhos, queixo, ombros, quadril, pés).
 - [ ] Centro em x=512; figura simétrica; braços com vão p/ camada.
